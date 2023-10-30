@@ -7,7 +7,7 @@
     <title>Edit quiz</title>
 </head>
 <body>
-    <form method="POST" action="/">
+    <form method="POST" action="/{{ $quiz ? $quiz->id : '' }}">
         @csrf
         <input name="title" type="text" placeholder="title" value="{{ $quiz ? $quiz->title : '' }}" />
         <input name="description" type="text" placeholder="description" value="{{ $quiz ? $quiz->description : '' }}" />

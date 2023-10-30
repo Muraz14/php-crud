@@ -24,8 +24,8 @@ class QuizController extends Controller
     }
 
     public function createOrUpdate(Quiz $quiz, Request $request) {
-        if ($request->input("id")) {
-            $quiz::whereId($request->input("id"))->update($request->all());
+        if ($quiz->id) {
+            $quiz->update($request->all());
             return redirect('/');
         }
         $quiz->fill($request->all())->save();
